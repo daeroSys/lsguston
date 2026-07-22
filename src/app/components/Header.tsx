@@ -1,0 +1,67 @@
+import React, { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
+
+export function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <motion.header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-background/90 backdrop-blur-md border-b border-border shadow-lg' : 'bg-transparent'
+        }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 py-4">
+        <nav className="flex items-center justify-between">
+          <motion.div
+            className="text-lg font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
+            whileHover={{ scale: 1.05 }}
+          >
+            LS.Guston
+          </motion.div>
+          <ul className="hidden md:flex items-center space-x-8">
+            {['about', 'skills', 'certificates', 'portfolio', 'contact'].map((item, index) => (
+              <motion.li
+                key={item}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <motion.button
+                  onClick={() => scrollToSection(item)}
+                  className="text-muted-foreground hover:text-foreground transition-colors relative group"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                  <motion.div
+                    className="absolute -bottom-1 left-0 h-0.5 bg-primary"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: '100%' }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.button>
+              </motion.li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </motion.header>
+  );
+}
