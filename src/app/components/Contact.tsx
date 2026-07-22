@@ -7,7 +7,7 @@ export function Contact() {
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/lovely-shane-guston-303659418/" },
     { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/lalelilovee/?hl=en" },
     { icon: Github, label: "GitHub", href: "https://github.com/daeroSys" },
-    { icon: Mail, label: "Email", href: "[EMAIL_ADDRESS]" }
+    { icon: Mail, label: "Email", href: "mailto:lovelyshaneguston1@email.com" }
   ];
 
   return (
@@ -78,7 +78,9 @@ export function Contact() {
                 whileHover={{ x: 5 }}
               >
                 <Mail className="w-5 h-5 text-primary" />
-                <span className="text-muted-foreground">lovelyshaneguston1@email.com</span>
+                <a href="mailto:lovelyshaneguston1@email.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  lovelyshaneguston1@email.com
+                </a>
               </motion.div>
               <motion.div
                 className="flex items-center space-x-3"
