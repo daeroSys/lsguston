@@ -30,13 +30,13 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           <motion.div
-            className="text-lg font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
+            className="text-lg font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent pb-1"
             whileHover={{ scale: 1.05 }}
           >
             LS.Guston
           </motion.div>
           <ul className="hidden md:flex items-center space-x-8">
-            {['about', 'skills', 'certificates', 'portfolio', 'contact'].map((item, index) => (
+            {['about', 'experience', 'skills', 'certificates', 'activities', 'portfolio', 'contact'].map((item, index) => (
               <motion.li
                 key={item}
                 initial={{ opacity: 0, y: -20 }}

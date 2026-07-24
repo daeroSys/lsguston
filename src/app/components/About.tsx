@@ -24,7 +24,7 @@ export function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+          <h2 className="text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent pb-2">
             About Me
           </h2>
           <p className="text-lg text-muted-foreground italic">
@@ -47,7 +47,7 @@ export function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Hello! My name is Lovely Shane C. Guston, a 21 year old Business Administration student, majoring in Banking. I'm interested in challenging myself in gaining knowledge and more experience. I consider myself hard-working and flexible, and I hope that with my skills and abilities, I will be able to contribute to your company in the best way possible.
+              Hi! I am Lovely Shane C. Guston, a 21 year old Business Administration student, majoring in Banking. I'm interested in challenging myself in gaining knowledge and more experience. I consider myself hard-working and flexible, and I hope that with my skills and abilities, I will be able to contribute to your company in the best way possible.
             </motion.p>
             <motion.p
               className="text-muted-foreground leading-relaxed text-justify"
@@ -56,7 +56,7 @@ export function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Aspiring Banking Professional and businesswoman, currently pursuing a Bachelor's degree in Business Administration major in Banking, with a passion for finance and its role in driving economic growth. I thrive in dynamic environments where I can utilize my analytical skills to support sound financial decisions and build strong client relationships. With my experience in financial analysis, customer service, problem-solving, and attention to detail, I am eager to apply my skills, learn more, and contribute through an internship that can help me gain practical experience in the banking environment.
+              Aspiring banking professional and businesswoman, currently pursuing a bachelor's degree in Business Administration major in Banking, with a passion for finance and its role in driving economic growth. I thrive in dynamic environments where I can utilize my analytical skills to support sound financial decisions and build strong client relationships. With my experience in financial analysis, customer service, problem-solving, and attention to detail, I am eager to apply my skills, learn more, and contribute through an internship that can help me gain practical experience in the banking environment.
             </motion.p>
           </motion.div>
 
@@ -75,12 +75,20 @@ export function About() {
               <div className="space-y-2">
                 <p className="text-muted-foreground">Bachelor of Science in Business Administration Major in Banking</p>
                 <p className="text-sm text-muted-foreground">Our Lady of Fatima University • 2023-2027</p>
-                <motion.p
-                  className="text-sm text-muted-foreground"
-                  whileHover={{ color: "hsl(var(--primary))" }}
-                >
-                  GPA: 10000/100
-                </motion.p>
+                <div className="flex flex-col space-y-1">
+                  <motion.p
+                    className="text-sm text-muted-foreground"
+                  >
+                    GPA: 10000/100
+                  </motion.p>
+                  <motion.p
+                    className="text-sm font-medium text-primary"
+                    whileHover={{ scale: 1.05, originX: 0 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  >
+                    🏆 Dean's Lister - 2nd Semester, A.Y. 2024-2025
+                  </motion.p>
+                </div>
               </div>
             </motion.div>
 
@@ -90,7 +98,7 @@ export function About() {
             >
               <h3 className="mb-3 text-primary font-medium text-lg">Work Experience</h3>
               <div className="space-y-4">
-                <motion.div whileHover={{ x: 3 }}>
+                <motion.div>
                   <p className="text-foreground font-medium">Administrative Assistant Intern</p>
                   <p className="text-sm text-muted-foreground mb-2">Manuel L. Quezon University • 2023</p>
 

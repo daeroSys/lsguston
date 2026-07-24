@@ -3,6 +3,8 @@ import { motion } from 'motion/react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
+import { Experience } from './components/Experience';
+import { Activities } from './components/Activities';
 import { Skills } from './components/Skills';
 import { Certificates } from './components/Certificates';
 import { Portfolio } from './components/Portfolio';
@@ -115,8 +117,10 @@ export default function App() {
       <main className="relative z-10">
         <Hero />
         <About />
+        <Experience />
         <Skills />
         <Certificates />
+        <Activities />
         <Portfolio />
         <Contact />
       </main>

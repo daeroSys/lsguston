@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Mail, Linkedin, Instagram, Github } from 'lucide-react';
+import { Mail, Linkedin, Instagram, Github, Phone } from 'lucide-react';
 
 export function Contact() {
   const socialLinks = [
@@ -41,7 +41,7 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+          <h2 className="text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent pb-2">
             Let's Connect
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -58,10 +58,10 @@ export function Contact() {
             transition={{ duration: 0.6 }}
           >
             <div>
-              <h3 className="mb-4">Get In Touch</h3>
+              <h3 className="mb-4 text-foreground font-semibold text-xl">Get In Touch</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Whether you have a project in mind, want to collaborate, or simply want to chat
-                about marketing trends, I'd love to hear from you. Feel free to reach out through
+                about banking and finance, I'd love to hear from you. Feel free to reach out through
                 any of the channels below.
               </p>
             </div>
@@ -80,6 +80,15 @@ export function Contact() {
                 <Mail className="w-5 h-5 text-primary" />
                 <a href="mailto:lovelyshaneguston1@email.com" className="text-muted-foreground hover:text-primary transition-colors">
                   lovelyshaneguston1@email.com
+                </a>
+              </motion.div>
+              <motion.div
+                className="flex items-center space-x-3"
+                whileHover={{ x: 5 }}
+              >
+                <Phone className="w-5 h-5 text-primary" />
+                <a href="tel:+639000000000" className="text-muted-foreground hover:text-primary transition-colors">
+                  +63 976 610 7240
                 </a>
               </motion.div>
               <motion.div

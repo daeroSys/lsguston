@@ -73,7 +73,7 @@ export function Hero() {
         >
           <div className="space-y-4">
             <motion.h1
-              className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
+              className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent pb-2"
               variants={itemVariants}
               whileHover={{
                 scale: 1.03,
@@ -84,35 +84,32 @@ export function Hero() {
             </motion.h1>
             <motion.div
               variants={itemVariants}
-              className="overflow-hidden"
+              className="overflow-visible"
             >
               <motion.p
-                className="text-2xl text-muted-foreground font-medium"
+                className="text-2xl text-muted-foreground font-medium pb-1"
                 initial={{ x: -100 }}
                 animate={{ x: 0 }}
                 transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
               >
                 Bachelor of Science in Business Administration<br />
                 Major in Banking
-
               </motion.p>
             </motion.div>
+            <motion.p
+              className="text-lg text-muted-foreground leading-relaxed max-w-2xl"
+              variants={itemVariants}
+            >
+              Behind every number is a story relying on accuracy and trust. Powered by a strong foundation in banking and meticulous attention to detail, I thrive under pressure to deliver precise financial insights and build lasting value.
+            </motion.p>
           </div>
-
-          <motion.p
-            className="text-xl text-muted-foreground leading-relaxed max-w-2xl"
-            variants={itemVariants}
-            whileHover={{ x: 10, color: "hsl(var(--foreground))" }}
-          >
-            Short Description Here!!
-          </motion.p>
 
           <motion.div
             className="flex flex-col sm:flex-row gap-4"
             variants={itemVariants}
           >
             <motion.button
-              onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('certificates')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-primary text-primary-foreground px-8 py-4 rounded-lg relative overflow-hidden group text-lg font-medium"
               data-cursor="pointer"
               whileHover={{
@@ -121,7 +118,7 @@ export function Hero() {
               }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10">View My Work</span>
+              <span className="relative z-10">View Resume</span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary"
                 initial={{ x: '-100%' }}
@@ -158,7 +155,7 @@ export function Hero() {
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
-                Get In Touch
+                Contact me
               </motion.span>
             </motion.button>
           </motion.div>
@@ -194,7 +191,7 @@ export function Hero() {
               whileHover={{ scale: 1.05 }}
             >
               <ImageWithFallback
-                src="/pic.jpg"
+                src="/images/hero/pic.jpg"
                 alt="Lovely Shane Guston -BSBA Student"
                 className="w-full h-full object-cover relative z-10 group-hover:brightness-110 transition-all duration-500"
               />

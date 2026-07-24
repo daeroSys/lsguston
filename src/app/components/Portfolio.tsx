@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, useMotionValue, useTransform } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { ExternalLink, Github } from 'lucide-react';
 
 export function Portfolio() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -11,27 +10,27 @@ export function Portfolio() {
   // Move useTransform to top level to avoid conditional hook calls
   const rotateY = useTransform(mouseX, [-100, 100], [-5, 5]);
 
-  const projects = [
+  const events = [
     {
-      title: "Brand Campaign Strategy",
-      description: "Developed a comprehensive social media campaign for a local coffee shop, increasing engagement by 150% over 3 months.",
-      image: "https://images.unsplash.com/photo-1660833638050-41f95d8b94e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYXJrZXRpbmclMjBjYW1wYWlnbiUyMGRlc2lnbiUyMG1vY2t1cHxlbnwxfHx8fDE3NTU2MzA3MTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Social Media", "Brand Strategy", "Content Creation"],
-      metrics: { engagement: "+150%", reach: "50K+", conversion: "+35%" }
+      title: "9th Banking Days",
+      description: "Co-organized 'Bank on It' seminar featuring industry professionals and the 'Neon Disco BankOlympics' combining cheer competitions and strategic games.",
+      image: "/images/events/banko.jpg",
+      tags: ["Event Management", "Leadership", "Finance"],
+      metrics: { attendees: "500+", speakers: "5", activities: "10+" }
     },
     {
-      title: "Digital Marketing Analysis",
-      description: "Conducted market research and consumer behavior analysis for a university project, presenting findings to industry professionals.",
-      image: "https://images.unsplash.com/photo-1656164631668-8673eab87b84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMG1hcmtldGluZyUyMHN0cmF0ZWd5fGVufDF8fHx8MTc1NTYzMDcxOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Market Research", "Data Analysis", "Presentation"],
-      metrics: { accuracy: "94%", insights: "25+", presentation: "A+" }
+      title: "CBA Sportfest 2025",
+      description: "Organized and participated in a two-day inter-program sports and cultural event featuring a parade, ceremonies, and matches among CBA programs.",
+      image: "/images/events/sport1.jpg",
+      tags: ["Sports", "Coordination", "Teamwork"],
+      metrics: { teams: "8", duration: "2 Days", sports: "5+" }
     },
     {
-      title: "Visual Identity Project",
-      description: "Created a complete visual identity package for a nonprofit organization, including logo design and brand guidelines.",
-      image: "https://images.unsplash.com/photo-1659141170537-6e0aa70329a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmFuZCUyMGlkZW50aXR5JTIwZGVzaWduJTIwd29ya3NwYWNlfGVufDF8fHx8MTc1NTYzMDcxOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Brand Identity", "Logo Design", "Visual Design"],
-      metrics: { satisfaction: "100%", guidelines: "50+ pages", impact: "+200%" }
+      title: "Student Org Fair 2024",
+      description: "Conceptualized and managed a Squid Game-themed interactive booth for OLFU's Student Org Fair, engaging students through games and activities.",
+      image: "/images/events/squid.jpg",
+      tags: ["Creative Design", "Engagement", "Management"],
+      metrics: { participants: "300+", theme: "Squid Game", feedback: "Positive" }
     }
   ];
 
@@ -39,7 +38,7 @@ export function Portfolio() {
     const rect = event.currentTarget.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
+
     mouseX.set(event.clientX - centerX);
     mouseY.set(event.clientY - centerY);
   };
@@ -73,14 +72,14 @@ export function Portfolio() {
       {/* Enhanced floating elements */}
       <motion.div
         className="absolute top-1/4 right-1/4 w-40 h-40 bg-primary/5 rounded-full blur-2xl"
-        animate={{ 
-          x: [0, 100, 0], 
+        animate={{
+          x: [0, 100, 0],
           y: [0, -60, 0],
           scale: [1, 1.5, 1]
         }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
-      
+
       {/* Interactive grid pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="grid grid-cols-20 grid-rows-20 h-full w-full">
@@ -98,49 +97,46 @@ export function Portfolio() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.div 
+        <motion.div
           className="text-center space-y-4 mb-12"
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <motion.h2 
-            className="text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
-            whileHover={{ 
-              backgroundImage: "linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--foreground)))"
-            }}
+          <motion.h2
+            className="text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent pb-2"
           >
-            Portfolio
+            Event Gallery
           </motion.h2>
-          <motion.p 
-            className="text-lg text-muted-foreground"
+          <motion.p
+            className="text-lg text-muted-foreground italic"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            Recent projects and case studies
+            Highlights and photos from my organizational events
           </motion.p>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {projects.map((project, index) => (
-            <motion.div 
-              key={index} 
+          {events.map((event, index) => (
+            <motion.div
+              key={index}
               className="bg-card/80 backdrop-blur-sm rounded-xl overflow-hidden border border-border/50 group cursor-pointer relative"
               variants={itemVariants}
               data-cursor="pointer"
               onMouseMove={handleMouseMove}
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
-              whileHover={{ 
+              whileHover={{
                 y: -15,
                 rotateX: 5,
                 boxShadow: "0 25px 60px -12px rgba(0, 0, 0, 0.4)",
@@ -156,63 +152,39 @@ export function Portfolio() {
                 className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 opacity-0 group-hover:opacity-100"
                 transition={{ duration: 0.5 }}
               />
-              
+
               {/* Image container with parallax effect */}
               <div className="aspect-video overflow-hidden relative">
                 <motion.div
                   className="w-full h-full"
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                   <ImageWithFallback
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-500"
+                    src={event.image}
+                    alt={event.title}
+                    className="w-full h-full object-cover transition-all duration-500"
                   />
                 </motion.div>
-                
-                {/* Overlay icons */}
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100"
-                  initial={{ scale: 0.8 }}
-                  whileHover={{ scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <motion.button
-                    className="bg-primary/90 text-primary-foreground p-3 rounded-full backdrop-blur-sm"
-                    whileHover={{ scale: 1.2, rotate: 360 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </motion.button>
-                  <motion.button
-                    className="bg-accent/90 text-accent-foreground p-3 rounded-full backdrop-blur-sm"
-                    whileHover={{ scale: 1.2, rotate: -360 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Github className="w-4 h-4" />
-                  </motion.button>
-                </motion.div>
               </div>
-              
+
               <div className="p-6 space-y-4 relative z-10">
-                <motion.h3 
-                  className="group-hover:text-primary transition-colors"
-                  whileHover={{ x: 5, scale: 1.02 }}
+                <motion.h3
+                  className="text-xl font-bold text-foreground group-hover:text-primary transition-colors cursor-pointer"
+                  initial={{ opacity: 0.9 }}
+                  whileHover={{ opacity: 1, x: 5 }}
                 >
-                  {project.title}
+                  {event.title}
                 </motion.h3>
-                
-                <motion.p 
+
+                <motion.p
                   className="text-muted-foreground text-sm leading-relaxed"
                   initial={{ opacity: 0.7 }}
                   whileHover={{ opacity: 1, x: 5 }}
                 >
-                  {project.description}
+                  {event.description}
                 </motion.p>
-                
+
                 {/* Metrics display */}
                 <motion.div
                   className="grid grid-cols-3 gap-2 mt-4"
@@ -221,11 +193,11 @@ export function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  {Object.entries(project.metrics).map(([key, value]) => (
+                  {Object.entries(event.metrics).map(([key, value]) => (
                     <motion.div
                       key={key}
                       className="text-center p-2 bg-muted/50 rounded"
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.05,
                         backgroundColor: "hsl(var(--primary)/10)"
                       }}
@@ -235,9 +207,9 @@ export function Portfolio() {
                     </motion.div>
                   ))}
                 </motion.div>
-                
+
                 <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
+                  {event.tags.map((tag, tagIndex) => (
                     <motion.span
                       key={tagIndex}
                       className="px-3 py-1 bg-muted/50 text-muted-foreground text-xs rounded-full hover:bg-primary/20 hover:text-primary transition-colors cursor-default"
@@ -245,7 +217,7 @@ export function Portfolio() {
                       whileInView={{ opacity: 1, scale: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: tagIndex * 0.1 }}
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.1,
                         y: -2,
                         boxShadow: "0 4px 8px rgba(0,0,0,0.2)"
@@ -256,7 +228,7 @@ export function Portfolio() {
                   ))}
                 </div>
               </div>
-              
+
               {/* Animated border effect */}
               <motion.div
                 className="absolute inset-0 rounded-xl pointer-events-none"
