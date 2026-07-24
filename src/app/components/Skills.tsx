@@ -6,28 +6,50 @@ export function Skills() {
 
   const skillCategories = [
     {
-      title: "Digital Marketing",
-      skills: ["Social Media Strategy", "Content Marketing", "Email Campaigns", "SEO/SEM", "Analytics & Reporting"],
-      color: "from-blue-500/20 to-purple-500/20",
-      icon: "📱"
+      title: "Accounting Software",
+      icon: "💰",
+      color: "from-emerald-500/20 to-green-500/20",
+      skills: [
+        "QuickBooks Online",
+        "SAP Business One",
+        "Bookkeeping",
+        "Bank Reconciliation",
+        "Financial Reporting"
+      ]
     },
     {
-      title: "Creative Tools",
-      skills: ["Adobe Creative Suite", "Canva", "Figma", "Video Editing", "Photography"],
-      color: "from-pink-500/20 to-red-500/20",
-      icon: "🎨"
+      title: "Office & Technical Tools",
+      icon: "💻",
+      color: "from-blue-500/20 to-cyan-500/20",
+      skills: [
+        "Microsoft Excel",
+        "Google Sheets",
+        "Microsoft Word",
+        "Google Docs",
+        "Google Workspace"
+      ]
     },
     {
-      title: "Strategy & Analysis",
-      skills: ["Market Research", "Consumer Behavior", "Brand Strategy", "Campaign Planning", "Data Analysis"],
-      color: "from-green-500/20 to-teal-500/20",
-      icon: "📊"
+      title: "Digital Design",
+      icon: "🎨",
+      color: "from-pink-500/20 to-purple-500/20",
+      skills: [
+        "Canva",
+        "Presentation Design",
+        "Social Media Content"
+      ]
     },
     {
-      title: "Technical Skills",
-      skills: ["Google Analytics", "Facebook Ads Manager", "Mailchimp", "WordPress", "Basic HTML/CSS"],
-      color: "from-yellow-500/20 to-orange-500/20",
-      icon: "⚡"
+      title: "Professional Skills",
+      icon: "🤝",
+      color: "from-amber-500/20 to-orange-500/20",
+      skills: [
+        "Attention to Detail",
+        "Organization & Time Management",
+        "Communication",
+        "Adaptability",
+        "Team Collaboration"
+      ]
     }
   ];
 
@@ -113,13 +135,13 @@ export function Skills() {
             Skills & Expertise
           </motion.h2>
           <motion.p
-            className="text-lg text-muted-foreground"
+            className="text-lg text-muted-foreground italic"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            A blend of creative and analytical skills
+            Technical expertise and professional strengths.
           </motion.p>
         </motion.div>
 
@@ -133,7 +155,7 @@ export function Skills() {
           {skillCategories.map((category, index) => (
             <motion.div
               key={index}
-              className={`space-y-4 bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-6 relative overflow-hidden group cursor-pointer`}
+              className={`relative z-0 space-y-4 bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-6 overflow-hidden group cursor-pointer`}
               variants={itemVariants}
               data-cursor="pointer"
               onHoverStart={() => setHoveredCategory(index)}
@@ -142,6 +164,7 @@ export function Skills() {
                 scale: 1.05,
                 y: -10,
                 rotateX: 5,
+                zIndex: 20,
                 boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
               }}
               transition={{ duration: 0.4, ease: "easeOut" }}

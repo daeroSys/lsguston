@@ -27,8 +27,8 @@ export function About() {
           <h2 className="text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
             About Me
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Tagline Here!
+          <p className="text-lg text-muted-foreground italic">
+            Limitations are only in your mind.
           </p>
         </motion.div>
 
@@ -41,22 +41,22 @@ export function About() {
             transition={{ duration: 0.6 }}
           >
             <motion.p
-              className="text-muted-foreground leading-relaxed"
+              className="text-muted-foreground leading-relaxed text-justify"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              More Info Here!
+              Hello! My name is Lovely Shane C. Guston, a 21 year old Business Administration student, majoring in Banking. I'm interested in challenging myself in gaining knowledge and more experience. I consider myself hard-working and flexible, and I hope that with my skills and abilities, I will be able to contribute to your company in the best way possible.
             </motion.p>
             <motion.p
-              className="text-muted-foreground leading-relaxed"
+              className="text-muted-foreground leading-relaxed text-justify"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Additional Info Here!
+              Aspiring Banking Professional and businesswoman, currently pursuing a Bachelor's degree in Business Administration major in Banking, with a passion for finance and its role in driving economic growth. I thrive in dynamic environments where I can utilize my analytical skills to support sound financial decisions and build strong client relationships. With my experience in financial analysis, customer service, problem-solving, and attention to detail, I am eager to apply my skills, learn more, and contribute through an internship that can help me gain practical experience in the banking environment.
             </motion.p>
           </motion.div>
 
