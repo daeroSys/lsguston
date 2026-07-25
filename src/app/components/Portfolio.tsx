@@ -14,7 +14,7 @@ export function Portfolio() {
     {
       title: "9th Banking Days",
       description: "Co-organized 'Bank on It' seminar featuring industry professionals and the 'Neon Disco BankOlympics' combining cheer competitions and strategic games.",
-      image: "/images/events/banko.jpg",
+      image: "/images/events/banko1.jpg",
       tags: ["Event Management", "Leadership", "Finance"],
       metrics: { attendees: "500+", speakers: "5", activities: "10+" }
     },
@@ -28,7 +28,7 @@ export function Portfolio() {
     {
       title: "Student Org Fair 2024",
       description: "Conceptualized and managed a Squid Game-themed interactive booth for OLFU's Student Org Fair, engaging students through games and activities.",
-      image: "/images/events/squid.jpg",
+      image: "/images/events/squid1.jpg",
       tags: ["Creative Design", "Engagement", "Management"],
       metrics: { participants: "300+", theme: "Squid Game", feedback: "Positive" }
     }
