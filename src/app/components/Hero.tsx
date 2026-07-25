@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, X, Download, FileText, ExternalLink } from 'lucide-react';
 
 export function Hero() {
   const { scrollYProgress } = useScroll();
   const [showResume, setShowResume] = useState(false);
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  // Lock background scroll when resume modal is open
+  React.useEffect(() => {
+    if (showResume) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showResume]);
+
+  const resumePdfPath = "/GustonResume.pdf";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -109,8 +123,8 @@ export function Hero() {
             variants={itemVariants}
           >
             <motion.button
-              onClick={() => document.getElementById('certificates')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-primary text-primary-foreground px-8 py-4 rounded-lg relative overflow-hidden group text-lg font-medium"
+              onClick={() => setShowResume(true)}
+              className="bg-primary text-primary-foreground px-8 py-4 rounded-lg relative overflow-hidden group text-lg font-medium cursor-pointer"
               data-cursor="pointer"
               whileHover={{
                 scale: 1.05,
@@ -118,7 +132,10 @@ export function Hero() {
               }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10">View Resume</span>
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                <FileText className="w-5 h-5" />
+                View Resume
+              </span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary"
                 initial={{ x: '-100%' }}
@@ -191,7 +208,7 @@ export function Hero() {
               whileHover={{ scale: 1.05 }}
             >
               <ImageWithFallback
-                src="/images/hero/pic.jpg"
+                src="/images/hero/pic1.jpg"
                 alt="Lovely Shane Guston -BSBA Student"
                 className="w-full h-full object-cover relative z-10 group-hover:brightness-110 transition-all duration-500"
               />
@@ -241,6 +258,84 @@ export function Hero() {
           <ChevronDown className="w-5 h-5 text-muted-foreground" />
         </motion.div>
       </motion.div>
+
+      {/* PDF Resume Viewer Modal */}
+      <AnimatePresence>
+        {showResume && (
+          <motion.div
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
+            data-lenis-prevent
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowResume(false)}
+          >
+            <motion.div
+              className="relative max-w-5xl w-full h-[90vh] bg-card rounded-2xl p-4 sm:p-6 border border-border/80 shadow-2xl overflow-hidden flex flex-col justify-between"
+              data-lenis-prevent
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="flex items-center justify-between pb-3 border-b border-border/40">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                    <FileText className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground leading-snug">Resume - Lovely Shane Guston</h3>
+                    <p className="text-xs text-muted-foreground">BSBA Major in Banking</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={resumePdfPath}
+                    download="Lovely_Shane_Guston_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 text-xs font-semibold transition-colors shadow-sm"
+                  >
+                    <Download className="w-4 h-4" />
+                    <span className="hidden sm:inline">Download PDF</span>
+                  </a>
+                  <button
+                    onClick={() => setShowResume(false)}
+                    className="p-2 rounded-full bg-muted/60 hover:bg-primary hover:text-primary-foreground border border-border/60 transition-colors shadow-sm cursor-pointer"
+                    aria-label="Close modal"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* PDF Viewer / Embed Container */}
+              <div className="w-full flex-1 my-3 rounded-xl overflow-hidden bg-muted/20 border border-border/40 relative">
+                <iframe
+                  src={`${resumePdfPath}#toolbar=1`}
+                  className="w-full h-full border-none rounded-xl"
+                  title="Lovely Shane Guston Resume"
+                />
+              </div>
+
+              {/* Modal Footer */}
+              <div className="pt-2 border-t border-border/40 flex items-center justify-between text-xs text-muted-foreground">
+                <span>If PDF preview is not loading, use the download button above or open direct link.</span>
+                <a
+                  href={resumePdfPath}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 text-primary hover:underline font-medium"
+                >
+                  Open Direct Link <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

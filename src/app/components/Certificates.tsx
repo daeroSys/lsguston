@@ -28,7 +28,7 @@ const sampleCertificates: Certificate[] = [
   {
     id: 2,
     title: "SAP Business One Student Courseware",
-    issuer: "SAP",
+    issuer: "Erudite Academy",
     date: "December 21, 2024",
     skills: ["Enterprise Resource Planning (ERP)", "Business Processes", "SAP"],
     image: "/images/certificates/SAP.jpg",
@@ -38,7 +38,7 @@ const sampleCertificates: Certificate[] = [
     id: 3,
     title: "Asia Youth Entrepreneurship Competency Assessment",
     issuer: "Asia Youth Entrepreneurship",
-    date: "2024",
+    date: "June 24, 2026",
     credentialId: "ERI Score: 4.4 / 5.0",
     skills: ["Entrepreneurship", "Business Competency", "Innovation"],
     image: "/images/certificates/Asia.jpg",
@@ -59,7 +59,7 @@ const sampleCertificates: Certificate[] = [
     issuer: "Junior Banking and Finance Society (JBFISOC)",
     date: "October 13, 2025",
     skills: ["Banking Knowledge", "Analytical Skills", "Critical Thinking"],
-    image: "/images/certificates/Quiz.jpg",
+    image: "/images/certificates/Quiz1.jpg",
     color: "from-indigo-600/20 to-cyan-600/20"
   }
 ];
@@ -160,7 +160,9 @@ export function Certificates() {
         <div
           className="relative h-[440px] flex items-center justify-center perspective-[1200px]"
           onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseLeave={() => {
+            if (!selectedCert) setIsHovered(false);
+          }}
         >
           {/* Side Navigation Arrow: PREVIOUS (Left side) */}
           <motion.button
@@ -298,7 +300,10 @@ export function Certificates() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedCert(null)}
+            onClick={() => {
+              setSelectedCert(null);
+              setIsHovered(false);
+            }}
           >
             <motion.div
               className="relative max-w-4xl w-full max-h-[90vh] bg-card rounded-2xl p-5 border border-border/80 shadow-2xl overflow-hidden flex flex-col justify-between"
@@ -315,7 +320,10 @@ export function Certificates() {
                   <h3 className="text-xl font-bold text-foreground leading-snug">{selectedCert.title}</h3>
                 </div>
                 <button
-                  onClick={() => setSelectedCert(null)}
+                  onClick={() => {
+                    setSelectedCert(null);
+                    setIsHovered(false);
+                  }}
                   className="p-2 rounded-full bg-muted/60 hover:bg-primary hover:text-primary-foreground border border-border/60 transition-colors shadow-sm cursor-pointer"
                   aria-label="Close modal"
                 >

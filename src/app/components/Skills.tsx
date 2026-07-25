@@ -128,7 +128,6 @@ export function Skills() {
             className="text-4xl lg:text-5xl font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
             whileHover={{
               scale: 1.05,
-              backgroundImage: "linear-gradient(45deg, hsl(var(--primary)), hsl(var(--foreground)))"
             }}
             transition={{ duration: 0.3 }}
           >
@@ -190,9 +189,8 @@ export function Skills() {
               </motion.div>
 
               <motion.h3
-                className="text-center text-muted-foreground border-b border-border pb-2 relative z-10"
+                className="text-center text-muted-foreground group-hover:text-foreground border-b border-border pb-2 relative z-10 transition-colors"
                 whileHover={{
-                  color: "hsl(var(--foreground))",
                   scale: 1.05
                 }}
                 transition={{ duration: 0.3 }}
@@ -209,7 +207,6 @@ export function Skills() {
                     custom={skillIndex}
                     whileHover={{
                       x: 5,
-                      color: "hsl(var(--primary))",
                       fontWeight: 500
                     }}
                     transition={{ duration: 0.2 }}

@@ -36,20 +36,28 @@ export function Header() {
             LS.Guston
           </motion.div>
           <ul className="hidden md:flex items-center space-x-8">
-            {['about', 'experience', 'skills', 'certificates', 'activities', 'portfolio', 'contact'].map((item, index) => (
+            {[
+              { id: 'about', label: 'About' },
+              { id: 'experience', label: 'Experience' },
+              { id: 'skills', label: 'Skills' },
+              { id: 'certificates', label: 'Certificates' },
+              { id: 'activities', label: 'Activities' },
+              { id: 'portfolio', label: 'Events' },
+              { id: 'contact', label: 'Contact' }
+            ].map((item, index) => (
               <motion.li
-                key={item}
+                key={item.id}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <motion.button
-                  onClick={() => scrollToSection(item)}
+                  onClick={() => scrollToSection(item.id)}
                   className="text-muted-foreground hover:text-foreground transition-colors relative group"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                  {item.label}
                   <motion.div
                     className="absolute -bottom-1 left-0 h-0.5 bg-primary"
                     initial={{ width: 0 }}

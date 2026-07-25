@@ -16,21 +16,21 @@ export function Portfolio() {
       description: "Co-organized 'Bank on It' seminar featuring industry professionals and the 'Neon Disco BankOlympics' combining cheer competitions and strategic games.",
       image: "/images/events/banko1.jpg",
       tags: ["Event Management", "Leadership", "Finance"],
-      metrics: { attendees: "500+", speakers: "5", activities: "10+" }
+      metrics: { attendees: "300+", speakers: "2", activities: "5" }
     },
     {
       title: "CBA Sportfest 2025",
       description: "Organized and participated in a two-day inter-program sports and cultural event featuring a parade, ceremonies, and matches among CBA programs.",
       image: "/images/events/sport2.jpg",
       tags: ["Sports", "Coordination", "Teamwork"],
-      metrics: { teams: "8", duration: "2 Days", sports: "5+" }
+      metrics: { teams: "5", duration: "2 Days", sports: "2" }
     },
     {
       title: "Student Org Fair 2024",
       description: "Conceptualized and managed a Squid Game-themed interactive booth for OLFU's Student Org Fair, engaging students through games and activities.",
       image: "/images/events/squid1.jpg",
       tags: ["Creative Design", "Engagement", "Management"],
-      metrics: { participants: "300+", theme: "Squid Game", feedback: "Positive" }
+      metrics: { visitors: "1000+", theme: "Squid Game", feedback: "Positive" }
     }
   ];
 

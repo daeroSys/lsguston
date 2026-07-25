@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Mail, Linkedin, Instagram, Github, Phone } from 'lucide-react';
+import { Mail, Linkedin, Instagram, Facebook, Phone, MapPin } from 'lucide-react';
 
 export function Contact() {
   const socialLinks = [
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/lovely-shane-guston-303659418/" },
     { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/lalelilovee/?hl=en" },
-    { icon: Github, label: "GitHub", href: "https://github.com/daeroSys" },
+    { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/lovelyshane.guston" },
     { icon: Mail, label: "Email", href: "mailto:lovelyshaneguston1@email.com" }
   ];
 
@@ -95,7 +95,7 @@ export function Contact() {
                 className="flex items-center space-x-3"
                 whileHover={{ x: 5 }}
               >
-                <span className="text-primary">📍</span>
+                <MapPin className="w-5 h-5 text-primary" />
                 <span className="text-muted-foreground">Quezon City, Metro Manila</span>
               </motion.div>
             </motion.div>

@@ -134,11 +134,15 @@ export default function App() {
       >
         <div className="max-w-6xl mx-auto px-6 text-center">
           <motion.p
-            className="text-muted-foreground text-sm"
-            whileHover={{ color: "hsl(var(--foreground))" }}
+            className="text-muted-foreground text-sm flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2"
+            whileHover={{ scale: 1.01 }}
             transition={{ duration: 0.3 }}
           >
-            © 2026 Lovely Shane C. Guston. All rights reserved.
+            <span>© 2026 Lovely Shane C. Guston. All rights reserved.</span>
+            <span className="hidden sm:inline opacity-40">•</span>
+            <span>
+              Developed by <a href="https://github.com/daeroSys" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline decoration-primary/30 underline-offset-4">daero</a>
+            </span>
           </motion.p>
         </div>
       </motion.footer>

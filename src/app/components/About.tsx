@@ -77,11 +77,6 @@ export function About() {
                 <p className="text-sm text-muted-foreground">Our Lady of Fatima University • 2023-2027</p>
                 <div className="flex flex-col space-y-1">
                   <motion.p
-                    className="text-sm text-muted-foreground"
-                  >
-                    GPA: 10000/100
-                  </motion.p>
-                  <motion.p
                     className="text-sm font-medium text-primary"
                     whileHover={{ scale: 1.05, originX: 0 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
