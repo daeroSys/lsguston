@@ -21,7 +21,7 @@ export function Portfolio() {
     {
       title: "CBA Sportfest 2025",
       description: "Organized and participated in a two-day inter-program sports and cultural event featuring a parade, ceremonies, and matches among CBA programs.",
-      image: "/images/events/sport1.jpg",
+      image: "/images/events/sport2.jpg",
       tags: ["Sports", "Coordination", "Teamwork"],
       metrics: { teams: "8", duration: "2 Days", sports: "5+" }
     },
