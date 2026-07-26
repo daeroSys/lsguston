@@ -30,10 +30,18 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           <motion.div
-            className="text-lg font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent pb-1"
+            className="flex items-center gap-2.5 cursor-pointer"
             whileHover={{ scale: 1.05 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            LS.Guston
+            <img
+              src="/images/lsg-logo.png"
+              alt="LS.Guston Logo"
+              className="h-8 w-auto object-contain"
+            />
+            <span className="text-lg font-semibold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent pb-1">
+              LS.Guston
+            </span>
           </motion.div>
           <ul className="hidden md:flex items-center space-x-8">
             {[
