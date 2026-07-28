@@ -141,7 +141,7 @@ export default function App() {
             <span>© 2026 Lovely Shane C. Guston. All rights reserved.</span>
             <span className="hidden sm:inline opacity-40">•</span>
             <span>
-              Developed by <a href="https://github.com/daeroSys" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline decoration-primary/30 underline-offset-4">DaeroSys</a>
+              Developed by <a href="https://www.linkedin.com/in/cedric-paul-mendoza-382453390/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline decoration-primary/30 underline-offset-4">DaeroSys</a>
             </span>
           </motion.p>
         </div>
