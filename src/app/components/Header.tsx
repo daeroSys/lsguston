@@ -32,7 +32,7 @@ export function Header() {
           <motion.div
             className="flex items-center gap-2.5 cursor-pointer"
             whileHover={{ scale: 1.05 }}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => scrollToSection('hero')}
           >
             <img
               src="/images/lsg-logo.png"
