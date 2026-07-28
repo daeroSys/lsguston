@@ -54,7 +54,7 @@ export function AnimatedCursor() {
   return (
     <>
       <motion.div
-        className="fixed w-4 h-4 bg-primary rounded-full pointer-events-none z-50 mix-blend-difference"
+        className="fixed w-4 h-4 bg-primary rounded-full pointer-events-none z-[9999] mix-blend-difference"
         animate={{
           x: mousePosition.x - 8,
           y: mousePosition.y - 8,
@@ -68,7 +68,7 @@ export function AnimatedCursor() {
         }}
       />
       <motion.div
-        className="fixed w-8 h-8 border border-primary/50 rounded-full pointer-events-none z-50"
+        className="fixed w-8 h-8 border border-primary/50 rounded-full pointer-events-none z-[9999]"
         animate={{
           x: mousePosition.x - 16,
           y: mousePosition.y - 16,
